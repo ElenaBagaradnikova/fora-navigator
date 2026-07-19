@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:14,000
+Moving country while supporting a child with a disability means navigating healthcare, school, social services, documents and protection status at the same time. Search gives a family links. FORA Navigator gives them a pathway.
+
+2
+00:00:14,000 --> 00:00:32,000
+This Build Week MVP is for migrant families in Asturias, Spain. It works in Russian, Ukrainian and English, and prepares official-message drafts in those languages plus Spanish. Every person and detail in this demo is fictional.
+
+3
+00:00:32,000 --> 00:00:52,000
+A short intake asks only questions that change the route, including the document a person actually holds. Deterministic emergency screening happens before normal navigation: immediate danger stops the administrative flow and points to verified emergency help.
+
+4
+00:00:52,000 --> 00:01:08,000
+Before generation, the family can correct the structured Case. They then choose local processing or a separately consented GPT-5.6 Terra route. The public preview uses the stable local path and never presents it as a live model result.
+
+5
+00:01:08,000 --> 00:01:35,000
+Instead of a long chatbot answer, FORA Navigator shows three immediate priorities and the dependencies that unlock later actions. Each step explains what to do, why, where to go, which documents to prepare, the expected result, likely obstacles and what still needs human verification.
+
+6
+00:01:35,000 --> 00:01:55,000
+Documents are deduplicated across the Case. Drafts are available in four languages and are never sent automatically. Official sources carry jurisdiction, confidence, the last verification date and the next scheduled human review. The model cannot invent this metadata.
+
+7
+00:01:55,000 --> 00:02:17,000
+AI is not the end of support. A person can request a peer consultant with lived experience or a specialist. This endpoint cannot access the Case. It can receive only the fields shown in this preview and needs an independent consent. In the competition build, it sends nothing and returns a clearly labelled demo receipt.
+
+8
+00:02:17,000 --> 00:02:22,000
+I built FORA Navigator with Codex as my product and engineering partner.
+
+9
+00:02:22,000 --> 00:02:32,000
+Codex helped turn domain experience into a bounded specification, implement multilingual UX and typed safety contracts, repair sources, diagnose a production-only build bug, and create the test matrix.
+
+10
+00:02:32,000 --> 00:02:39,000
+GPT-5.6 Terra powers the optional Responses API planner with Structured Outputs; deterministic code then checks sources, dependencies, personal identifiers and prohibited guarantees.
+
+11
+00:02:39,000 --> 00:02:51,000
+The result is live on Vercel, tested across desktop and mobile, and usable without an account or API key. FORA Navigator turns uncertainty into an actionable, checkable plan — while keeping the family in control of every data boundary.

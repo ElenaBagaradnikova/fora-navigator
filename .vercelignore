@@ -1,0 +1,10 @@
+.git
+.next
+.pnpm-store
+node_modules
+test-results
+.codex-dev.err.log
+.codex-dev.out.log
+.env
+.env.*
+!.env.example

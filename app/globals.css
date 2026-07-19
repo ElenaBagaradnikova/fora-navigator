@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f0e6;
+  --paper-strong: #fffaf0;
+  --ink: #18322f;
+  --muted: #5f706c;
+  --line: #cdd8d2;
+  --teal: #0f5c59;
+  --teal-dark: #0a4543;
+  --teal-soft: #dcebe6;
+  --coral: #c9654f;
+  --coral-soft: #f7ddd3;
+  --yellow: #f1c85b;
+  --white: #ffffff;
+  --danger: #a73932;
+  --danger-soft: #fae2df;
+  --shadow: 0 16px 42px rgba(24, 50, 47, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.display-font {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.surface {
+  border: 1px solid var(--line);
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.button-primary,
+.button-secondary,
+.button-quiet,
+.button-danger {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--teal);
+  color: white;
+  box-shadow: 0 7px 0 var(--teal-dark);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+}
+
+.button-primary:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 3px 0 var(--teal-dark);
+}
+
+.button-secondary {
+  border: 1px solid var(--teal);
+  background: var(--paper-strong);
+  color: var(--teal-dark);
+}
+
+.button-secondary:hover:not(:disabled),
+.button-quiet:hover:not(:disabled) {
+  background: var(--teal-soft);
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--teal-dark);
+}
+
+.button-danger {
+  background: var(--danger);
+  color: white;
+}
+
+button:disabled,
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  box-shadow: none;
+}
+
+.field {
+  width: 100%;
+  border: 1.5px solid #9bada6;
+  border-radius: 10px;
+  background: white;
+  color: var(--ink);
+  padding: 14px 15px;
+}
+
+.field:hover {
+  border-color: var(--teal);
+}
+
+.field::placeholder {
+  color: #7a8b86;
+}
+
+.eyebrow {
+  color: var(--coral);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.notice {
+  border-left: 4px solid var(--yellow);
+  background: #fff5ce;
+  padding: 14px 16px;
+}
+
+.danger-notice {
+  border-left: 4px solid var(--danger);
+  background: var(--danger-soft);
+  color: #66221e;
+  padding: 14px 16px;
+}
+
+.print-only {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .button-primary,
+  .button-secondary,
+  .button-quiet,
+  .button-danger {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  .page-shell {
+    width: 100%;
+  }
+
+  .surface {
+    border-color: #c7c7c7;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
