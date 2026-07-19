@@ -4,6 +4,8 @@
 
 Competition Preview: [fora-navigator-source.vercel.app](https://fora-navigator-source.vercel.app)
 
+License: [MIT](./LICENSE)
+
 ## English overview for judges
 
 FORA Navigator is a multilingual AI-assisted social-work navigator for migrant families supporting a child or young adult with a disability. The Build Week MVP focuses on Asturias, Spain, where healthcare, education, disability recognition, municipal support and migration or protection status often depend on one another. Instead of returning a long chatbot answer, the product turns a short intake into a prioritised pathway, a shared document checklist, editable message drafts and evidence cards whose claims can be checked.
