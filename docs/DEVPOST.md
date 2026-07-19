@@ -1,6 +1,6 @@
 # FORA Navigator — final Devpost copy
 
-> Copy-ready English text. Replace the remaining `[REQUIRED]` YouTube placeholder before submitting.
+> Copy-ready English text for the final submission.
 
 ## Submission essentials
 
@@ -9,7 +9,7 @@
 - **Tagline:** Turn a migrant family’s complex disability-support situation into a safe, source-backed action pathway — with a human consultant still within reach.
 - **Working demo:** https://fora-navigator-source.vercel.app
 - **Code repository:** https://github.com/ElenaBagaradnikova/fora-navigator
-- **Public YouTube demo:** `[REQUIRED — under 3 minutes]`
+- **YouTube demo:** https://youtu.be/ArG4D22rc98 (link-accessible, 2:54)
 - **Codex /feedback Session ID:** `019f7718-be3f-7763-9850-bccc3543baee`
 
 ## Short description
@@ -87,7 +87,7 @@ A production build also uncovered a Turbopack/Zod module-initialisation issue th
 - a single document checklist shared across actions;
 - RU/UK/EN navigation and RU/UK/EN/ES drafts;
 - independent local, AI and human-handoff consent boundaries;
-- 58 passing unit/integration tests and 16 passing local desktop/mobile Playwright checks;
+- 59 passing unit/integration tests and 16 passing local desktop/mobile Playwright checks;
 - a published end-to-end smoke test from fictional intake to consultation demo receipt.
 
 ## What we learned

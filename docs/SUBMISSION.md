@@ -5,7 +5,7 @@
 - **Deadline:** July 21, 2026 at 5:00 PM PDT — July 22 at 02:00 CEST in Spain.
 - **Track:** Apps for Your Life.
 - **Language:** English submission materials, or an English translation.
-- **Demo video:** public YouTube, under three minutes, with audio explaining the product, Codex use and GPT-5.6 use.
+- **Demo video:** publicly accessible YouTube link, under three minutes, with audio explaining the product, Codex use and GPT-5.6 use.
 - **Repository:** public with relevant licensing, or private and shared with `testing@devpost.com` and `build-week-event@openai.com`.
 - **Codex evidence:** `/feedback` Session ID from the primary build thread.
 - **Testing access:** free, unrestricted working demo during judging.
@@ -27,16 +27,17 @@ Official references:
 - [x] Four publication-ready English screenshots: `docs/assets/`
 - [x] README with setup, testing, Codex and GPT-5.6 sections
 - [x] Fictional sample data and no-login testing path
-- [x] 58 unit/integration tests
+- [x] 59 unit/integration tests
 - [x] 16 local desktop/mobile Playwright checks
 - [x] Production Vercel smoke from intake to consultation receipt
 - [x] Public demo fails closed: `mode: demo`, `acceptsRealData: false`
 - [x] Codex `/feedback` Session ID: `019f7718-be3f-7763-9850-bccc3543baee`
+- [x] Link-accessible YouTube demo (2:54): https://youtu.be/ArG4D22rc98
 
 ## Required before submission
 
-- [ ] Record and edit the demo video to under 3:00.
-- [ ] Upload it publicly to YouTube and add the URL to `docs/DEVPOST.md`.
+- [x] Record and edit the demo video to under 3:00.
+- [x] Upload it to YouTube with link access and add the URL to `docs/DEVPOST.md`.
 - [x] Publish the public code repository: https://github.com/ElenaBagaradnikova/fora-navigator
 - [x] Add the MIT open-source licence.
 - [x] Run `/feedback` in the primary Codex build thread and copy the Session ID.

@@ -30,6 +30,18 @@ describe("safe fallback navigation plan", () => {
     }
   });
 
+  it("keeps each draft's age label in that draft's language", () => {
+    const englishCase = getDemoCases("en")[0].userCase;
+    const plan = createFallbackPlan(englishCase, undefined, "en");
+    const healthDraft = plan.drafts.find((draft) => draft.id === "draft-health");
+
+    expect(healthDraft?.bodyRu).toContain("16 лет");
+    expect(healthDraft?.bodyUk).toContain("16 років");
+    expect(healthDraft?.bodyEn).toContain("age 16");
+    expect(healthDraft?.bodyEs).toContain("16 años");
+    expect(healthDraft?.bodyEs).not.toContain("лет");
+  });
+
   it("keeps every action dependency resolvable and every source reviewable", () => {
     const plan = createFallbackPlan(demoCases[0].userCase);
     const ids = new Set(plan.actions.map((action) => action.id));

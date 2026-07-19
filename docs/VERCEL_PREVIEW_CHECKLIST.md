@@ -17,7 +17,7 @@ If the two feature-flag variables are absent, the application still fails closed
 
 - [x] `pnpm typecheck`
 - [x] `pnpm lint`
-- [x] 58 unit/integration tests
+- [x] 59 unit/integration tests
 - [x] 16 desktop/mobile Playwright checks
 - [x] clean production build
 - [x] consultation desktop/mobile visual review

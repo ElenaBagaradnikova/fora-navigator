@@ -270,7 +270,11 @@ function documentAction(): ActionStep {
 
 function buildDrafts(userCase: UserCase): DraftDocument[] {
   const supported = userCase.household.find((member) => member.role !== "caregiver");
-  const age = supported?.ageRange === "12-17" ? "16 лет" : "возраст указан в приложенных данных";
+  const isTeen = supported?.ageRange === "12-17";
+  const ageRu = isTeen ? "16 лет" : "возраст указан в приложенных данных";
+  const ageUk = isTeen ? "16 років" : "вік зазначено в доданих даних";
+  const ageEn = isTeen ? "age 16" : "age provided in the attached information";
+  const ageEs = isTeen ? "16 años" : "edad indicada en los datos adjuntos";
   const needs = supported?.supportNeeds.join(", ") || "особые потребности";
 
   return [
@@ -283,10 +287,10 @@ function buildDrafts(userCase: UserCase): DraftDocument[] {
       subjectUk: "Запит щодо доступу до медичного обслуговування",
       subjectEn: "Request about access to healthcare",
       subjectEs: "Consulta sobre acceso a la asistencia sanitaria",
-      bodyRu: `Здравствуйте. Мы недавно проживаем в ${userCase.municipality}, Asturias. В нашей семье есть человек (${age}) с потребностями: ${needs}. Просим сообщить, какой порядок доступа к первичной медицинской помощи применяется в нашей ситуации и какие документы нужно предоставить. Медицинское покрытие: ${userCase.healthcareCoverage === "yes" ? "есть" : "требуется уточнить"}. Просим по возможности ответить письменно.`,
-      bodyUk: `Добрий день. Ми нещодавно проживаємо в ${userCase.municipality}, Asturias. У нашій сім'ї є людина (${age}) з такими потребами підтримки: ${needs}. Просимо повідомити, який порядок доступу до первинної медичної допомоги застосовується в нашій ситуації та які документи потрібно надати. Медичне покриття ${userCase.healthcareCoverage === "yes" ? "підтверджено" : "потрібно уточнити"}. Просимо, за можливості, відповісти письмово.`,
-      bodyEn: `Hello. We recently began living in ${userCase.municipality}, Asturias. A person in our family (${age}) has the following support needs: ${needs}. Please tell us which pathway to primary healthcare applies in our situation and which documents we should provide. Healthcare coverage ${userCase.healthcareCoverage === "yes" ? "is confirmed" : "needs to be confirmed"}. If possible, please reply in writing.`,
-      bodyEs: `Buenos días. Residimos recientemente en ${userCase.municipality}, Asturias. En nuestra familia hay una persona (${age}) con las siguientes necesidades de apoyo: ${needs}. Les agradeceríamos que nos indicaran qué procedimiento de acceso a la atención primaria corresponde a nuestra situación y qué documentos debemos presentar. La cobertura sanitaria ${userCase.healthcareCoverage === "yes" ? "está reconocida" : "debe confirmarse"}. Si es posible, solicitamos una respuesta por escrito.`,
+      bodyRu: `Здравствуйте. Мы недавно проживаем в ${userCase.municipality}, Asturias. В нашей семье есть человек (${ageRu}) с потребностями: ${needs}. Просим сообщить, какой порядок доступа к первичной медицинской помощи применяется в нашей ситуации и какие документы нужно предоставить. Медицинское покрытие: ${userCase.healthcareCoverage === "yes" ? "есть" : "требуется уточнить"}. Просим по возможности ответить письменно.`,
+      bodyUk: `Добрий день. Ми нещодавно проживаємо в ${userCase.municipality}, Asturias. У нашій сім'ї є людина (${ageUk}) з такими потребами підтримки: ${needs}. Просимо повідомити, який порядок доступу до первинної медичної допомоги застосовується в нашій ситуації та які документи потрібно надати. Медичне покриття ${userCase.healthcareCoverage === "yes" ? "підтверджено" : "потрібно уточнити"}. Просимо, за можливості, відповісти письмово.`,
+      bodyEn: `Hello. We recently began living in ${userCase.municipality}, Asturias. A person in our family (${ageEn}) has the following support needs: ${needs}. Please tell us which pathway to primary healthcare applies in our situation and which documents we should provide. Healthcare coverage ${userCase.healthcareCoverage === "yes" ? "is confirmed" : "needs to be confirmed"}. If possible, please reply in writing.`,
+      bodyEs: `Buenos días. Residimos recientemente en ${userCase.municipality}, Asturias. En nuestra familia hay una persona (${ageEs}) con las siguientes necesidades de apoyo: ${needs}. Les agradeceríamos que nos indicaran qué procedimiento de acceso a la atención primaria corresponde a nuestra situación y qué documentos debemos presentar. La cobertura sanitaria ${userCase.healthcareCoverage === "yes" ? "está reconocida" : "debe confirmarse"}. Si es posible, solicitamos una respuesta por escrito.`,
       placeholders: [],
       requiresUserReview: true,
     },
@@ -299,10 +303,10 @@ function buildDrafts(userCase: UserCase): DraftDocument[] {
       subjectUk: "Запит щодо зарахування та освітньої підтримки",
       subjectEn: "Request about school enrolment and education support",
       subjectEs: "Consulta sobre escolarización y apoyos educativos",
-      bodyRu: `Здравствуйте. Наша семья недавно переехала в ${userCase.municipality}. Мы ищем школьный маршрут для ребёнка/подростка (${age}) с особыми образовательными потребностями: ${needs}. Просим сообщить порядок подачи заявления сейчас, список документов и контакт для оценки необходимых мер поддержки. Имеющиеся иностранные документы готовы предоставить после уточнения формата и требований к переводу.`,
-      bodyUk: `Добрий день. Наша сім'я нещодавно переїхала до ${userCase.municipality}. Ми шукаємо шкільний маршрут для дитини/підлітка (${age}) з особливими освітніми потребами: ${needs}. Просимо повідомити чинний порядок подання заяви, перелік документів і контакт для оцінювання необхідної підтримки. Наявні іноземні документи готові надати після уточнення формату та вимог до перекладу.`,
-      bodyEn: `Hello. Our family recently moved to ${userCase.municipality}. We need a school pathway for a child or teenager (${age}) with specific education support needs: ${needs}. Please tell us the current application procedure, required documents and contact for assessment of support. We can provide the available foreign documents after the format and translation requirements are confirmed.`,
-      bodyEs: `Buenos días. Nuestra familia se ha trasladado recientemente a ${userCase.municipality}. Necesitamos orientación para la escolarización de un/a menor (${age}) con necesidades específicas de apoyo educativo: ${needs}. Les rogamos que nos indiquen el procedimiento de solicitud aplicable en este momento, la documentación necesaria y el contacto para valorar los apoyos educativos. Podemos aportar la documentación extranjera disponible una vez confirmados el formato y los requisitos de traducción.`,
+      bodyRu: `Здравствуйте. Наша семья недавно переехала в ${userCase.municipality}. Мы ищем школьный маршрут для ребёнка/подростка (${ageRu}) с особыми образовательными потребностями: ${needs}. Просим сообщить порядок подачи заявления сейчас, список документов и контакт для оценки необходимых мер поддержки. Имеющиеся иностранные документы готовы предоставить после уточнения формата и требований к переводу.`,
+      bodyUk: `Добрий день. Наша сім'я нещодавно переїхала до ${userCase.municipality}. Ми шукаємо шкільний маршрут для дитини/підлітка (${ageUk}) з особливими освітніми потребами: ${needs}. Просимо повідомити чинний порядок подання заяви, перелік документів і контакт для оцінювання необхідної підтримки. Наявні іноземні документи готові надати після уточнення формату та вимог до перекладу.`,
+      bodyEn: `Hello. Our family recently moved to ${userCase.municipality}. We need a school pathway for a child or teenager (${ageEn}) with specific education support needs: ${needs}. Please tell us the current application procedure, required documents and contact for assessment of support. We can provide the available foreign documents after the format and translation requirements are confirmed.`,
+      bodyEs: `Buenos días. Nuestra familia se ha trasladado recientemente a ${userCase.municipality}. Necesitamos orientación para la escolarización de un/a menor (${ageEs}) con necesidades específicas de apoyo educativo: ${needs}. Les rogamos que nos indiquen el procedimiento de solicitud aplicable en este momento, la documentación necesaria y el contacto para valorar los apoyos educativos. Podemos aportar la documentación extranjera disponible una vez confirmados el formato y los requisitos de traducción.`,
       placeholders: [],
       requiresUserReview: true,
     },
