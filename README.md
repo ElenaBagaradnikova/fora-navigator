@@ -4,6 +4,8 @@
 
 Competition Preview: [fora-navigator-source.vercel.app](https://fora-navigator-source.vercel.app)
 
+Source repository: [github.com/ElenaBagaradnikova/fora-navigator](https://github.com/ElenaBagaradnikova/fora-navigator)
+
 License: [MIT](./LICENSE)
 
 ## English overview for judges

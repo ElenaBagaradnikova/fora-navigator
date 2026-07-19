@@ -158,6 +158,6 @@ There is no path from the consultation API to browser Case storage, and no path 
 ## Submission notes to complete later
 
 - Production demo URL: `https://fora-navigator-source.vercel.app`
-- Repository URL: `[add after publication]`
+- Repository URL: https://github.com/ElenaBagaradnikova/fora-navigator
 - Video URL: `[add after recording]`
 - Team members: `Elena Bagaradnikova — product owner, FORA domain expertise; [add others if applicable]`

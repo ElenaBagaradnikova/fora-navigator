@@ -8,7 +8,7 @@
 - **Track:** Apps for Your Life
 - **Tagline:** Turn a migrant family’s complex disability-support situation into a safe, source-backed action pathway — with a human consultant still within reach.
 - **Working demo:** https://fora-navigator-source.vercel.app
-- **Code repository:** `[REQUIRED — public URL, or private repo shared with testing@devpost.com and build-week-event@openai.com]`
+- **Code repository:** https://github.com/ElenaBagaradnikova/fora-navigator
 - **Public YouTube demo:** `[REQUIRED — under 3 minutes]`
 - **Codex /feedback Session ID:** `[REQUIRED — run /feedback in the primary build thread]`
 
@@ -120,4 +120,3 @@ Do not enter real personal, contact or medical data. No test credentials are nee
 ## Built with
 
 Codex · GPT-5.6 Terra · OpenAI Responses API · Next.js · React · TypeScript · Tailwind CSS · Zod · Vitest · Playwright · Vercel
-

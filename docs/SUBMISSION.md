@@ -36,11 +36,11 @@ Official references:
 
 - [ ] Record and edit the demo video to under 3:00.
 - [ ] Upload it publicly to YouTube and add the URL to `docs/DEVPOST.md`.
-- [ ] Create or publish the code repository.
-- [ ] If private, share it with both official judging addresses.
-- [ ] Add an explicit open-source licence if the repository is public.
+- [x] Publish the public code repository: https://github.com/ElenaBagaradnikova/fora-navigator
+- [x] Add the MIT open-source licence.
 - [ ] Run `/feedback` in the primary Codex build thread and copy the Session ID.
-- [ ] Add the repository URL and Session ID to `docs/DEVPOST.md`.
+- [x] Add the repository URL to `docs/DEVPOST.md`.
+- [ ] Add the Session ID to `docs/DEVPOST.md`.
 - [ ] Register/join the challenge on Devpost if not already done.
 - [ ] Save a draft submission early; do not wait for the deadline.
 - [ ] Verify every link in a private browser window.
