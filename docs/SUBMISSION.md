@@ -31,6 +31,7 @@ Official references:
 - [x] 16 local desktop/mobile Playwright checks
 - [x] Production Vercel smoke from intake to consultation receipt
 - [x] Public demo fails closed: `mode: demo`, `acceptsRealData: false`
+- [x] Codex `/feedback` Session ID: `019f7718-be3f-7763-9850-bccc3543baee`
 
 ## Required before submission
 
@@ -38,9 +39,9 @@ Official references:
 - [ ] Upload it publicly to YouTube and add the URL to `docs/DEVPOST.md`.
 - [x] Publish the public code repository: https://github.com/ElenaBagaradnikova/fora-navigator
 - [x] Add the MIT open-source licence.
-- [ ] Run `/feedback` in the primary Codex build thread and copy the Session ID.
+- [x] Run `/feedback` in the primary Codex build thread and copy the Session ID.
 - [x] Add the repository URL to `docs/DEVPOST.md`.
-- [ ] Add the Session ID to `docs/DEVPOST.md`.
+- [x] Add the Session ID to `docs/DEVPOST.md`.
 - [ ] Register/join the challenge on Devpost if not already done.
 - [ ] Save a draft submission early; do not wait for the deadline.
 - [ ] Verify every link in a private browser window.
@@ -60,5 +61,5 @@ Do not upload `.env.local`, API keys, mailbox credentials, `.next`, `node_module
 4. Open the Vercel demo in a private window and submit one fictional consultation request.
 5. Confirm the receipt says nothing was sent.
 6. Confirm `/api/consultation` returns `mode: demo`.
-7. Add `/feedback` Session ID.
+7. Confirm the `/feedback` Session ID is present.
 8. Submit, then save the submission confirmation URL and a screenshot.

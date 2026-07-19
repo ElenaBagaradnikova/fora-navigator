@@ -10,7 +10,7 @@
 - **Working demo:** https://fora-navigator-source.vercel.app
 - **Code repository:** https://github.com/ElenaBagaradnikova/fora-navigator
 - **Public YouTube demo:** `[REQUIRED — under 3 minutes]`
-- **Codex /feedback Session ID:** `[REQUIRED — run /feedback in the primary build thread]`
+- **Codex /feedback Session ID:** `019f7718-be3f-7763-9850-bccc3543baee`
 
 ## Short description
 
