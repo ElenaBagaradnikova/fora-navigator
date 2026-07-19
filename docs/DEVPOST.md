@@ -1,6 +1,6 @@
 # FORA Navigator — final Devpost copy
 
-> Copy-ready English text. Replace the three `[REQUIRED]` placeholders before submitting.
+> Copy-ready English text. Replace the remaining `[REQUIRED]` YouTube placeholder before submitting.
 
 ## Submission essentials
 
