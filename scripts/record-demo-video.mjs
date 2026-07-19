@@ -13,7 +13,7 @@ const outputDir = path.join(workspace, "test-results", "video");
 const rawDir = path.join(outputDir, "raw");
 const outputPath = path.join(outputDir, "fora-navigator-visual.webm");
 const nextCli = path.join(workspace, "node_modules", "next", "dist", "bin", "next");
-const logoPath = "C:/Users/bagar/Рабочее/Фора/photo_2024-05-17_20-09-33.jpg";
+const logoPath = path.join(workspace, "public", "fora-logo.jpg");
 
 await access(path.join(workspace, ".next", "BUILD_ID")).catch(() => {
   throw new Error("Production build not found. Run `pnpm build` first.");
