@@ -73,7 +73,7 @@ OpenAI helped provide the reasoning layer for turning a multidomain situation in
 
 Codex served as the implementation partner across product specification, multilingual UX, typed schemas, safety gates, source repair, tests and documentation. Important product and privacy decisions remained explicit owner decisions: supported languages, data controller identity, public contact, retention proposal, demo-only live gates and the exact consultation preview.
 
-The resulting verification matrix currently includes 58 unit/integration tests and 16 Playwright checks across desktop and mobile, plus TypeScript, lint and production build checks.
+The resulting verification matrix currently includes 59 unit/integration tests and 16 Playwright checks across desktop and mobile, plus TypeScript, lint and production build checks.
 
 ## Safety and privacy by design
 
@@ -129,7 +129,7 @@ There is no path from the consultation API to browser Case storage, and no path 
 - Competition Preview: [fora-navigator-source.vercel.app](https://fora-navigator-source.vercel.app);
 - `pnpm typecheck` — pass;
 - `pnpm lint` — pass;
-- `pnpm test` — 58/58 pass;
+- `pnpm test` — 59/59 pass;
 - `pnpm build` — pass;
 - `pnpm test:e2e` — 16/16 desktop/mobile pass;
 - live OpenAI smoke — intentionally not run because no approved API key was provided;

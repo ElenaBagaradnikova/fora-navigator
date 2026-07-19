@@ -1,0 +1,56 @@
+[
+  {
+    "start": 0,
+    "end": 20,
+    "rate": 0,
+    "text": "A family has just moved to Spain. Their son has autism. Information and support exist, but they do not know what to do first. Navigating it all is overwhelming. FORA Navigator turns that uncertainty into a pathway."
+  },
+  {
+    "start": 20,
+    "end": 38,
+    "rate": 0,
+    "text": "This Build Week MVP is for migrant families in Asturias. It works in Russian, Ukrainian and English, and prepares official message drafts in those languages plus Spanish. Every person and detail in this demo is fictional."
+  },
+  {
+    "start": 38,
+    "end": 57,
+    "rate": 1,
+    "text": "A short intake asks only questions that change the route, including the document a person actually holds. Deterministic emergency screening happens before normal navigation: immediate danger stops the administrative flow and points to verified emergency help."
+  },
+  {
+    "start": 57,
+    "end": 72,
+    "rate": 2,
+    "text": "Before generation, the family can correct the Case and choose local processing or a separately consented GPT-5.6 Terra route. The public preview uses the stable local path and never presents it as live AI."
+  },
+  {
+    "start": 72,
+    "end": 98,
+    "rate": 0,
+    "text": "Instead of a long chatbot answer, FORA Navigator shows three immediate priorities and the dependencies that unlock later actions. Each step explains what to do, why, where to go, which documents to prepare, the expected result, likely obstacles and what still needs human verification."
+  },
+  {
+    "start": 98,
+    "end": 118,
+    "rate": 1,
+    "text": "Documents are deduplicated. Drafts in four languages are never sent automatically. Official sources carry jurisdiction, confidence and human review dates. The model cannot invent this metadata."
+  },
+  {
+    "start": 118,
+    "end": 140,
+    "rate": 2,
+    "text": "AI is not the end of support. A person can request a peer consultant with lived experience or a specialist. This endpoint cannot access the Case. It receives only the fields shown in the preview and needs independent consent. In the competition build, it sends nothing and returns a clearly labelled demo receipt."
+  },
+  {
+    "start": 140,
+    "end": 160,
+    "rate": 5,
+    "text": "I built FORA Navigator with Codex as my product and engineering partner. Codex helped shape the specification, multilingual UX, typed safety contracts, source repair, production diagnosis and tests. GPT-5.6 Terra powers the optional Responses API planner with Structured Outputs; deterministic code checks sources, dependencies, personal identifiers and prohibited guarantees."
+  },
+  {
+    "start": 160,
+    "end": 172,
+    "rate": 3,
+    "text": "The result is live on Vercel, tested on desktop and mobile, and usable without an account or API key. FORA Navigator turns uncertainty into a checkable plan while keeping the family in control."
+  }
+]

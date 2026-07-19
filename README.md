@@ -32,9 +32,9 @@ GPT-5.6 Terra is implemented as an optional planner through the OpenAI Responses
 
 ### Safety and verification
 
-Emergency screening runs before ordinary navigation. The product does not diagnose, prescribe, promise benefits or impersonate an authority. Draft letters are never sent automatically. Official sources show jurisdiction, confidence, last-reviewed date and next human-review date. Case data stays in the browser by default, and the consultation endpoint cannot access the full Case. The current verification matrix contains 58 unit/integration tests and 16 Playwright checks across desktop and mobile.
+Emergency screening runs before ordinary navigation. The product does not diagnose, prescribe, promise benefits or impersonate an authority. Draft letters are never sent automatically. Official sources show jurisdiction, confidence, last-reviewed date and next human-review date. Case data stays in the browser by default, and the consultation endpoint cannot access the full Case. The current verification matrix contains 59 unit/integration tests and 16 Playwright checks across desktop and mobile.
 
-Submission materials: [Devpost copy](./docs/DEVPOST.md) · [demo video script](./docs/DEMO_SCRIPT.md) · [submission checklist](./docs/SUBMISSION.md)
+Submission materials: [YouTube demo](https://youtu.be/ArG4D22rc98) · [Devpost copy](./docs/DEVPOST.md) · [demo video script](./docs/DEMO_SCRIPT.md) · [submission checklist](./docs/SUBMISSION.md)
 
 ### Published preview
 
@@ -183,7 +183,7 @@ pnpm test:e2e
 
 Текущая матрица:
 
-- 58 unit/integration тестов: схемы, RU/УКР/EN планы, четыре языка писем, статусы защиты, зависимости, TTL/session storage, versioned одноразовые AI/handoff consent, consultation preview/email allowlist, honeypot/rate limit, freshness reminder, неполные и противоречивые данные, emergency, незаконный запрос, закрытый live gate, API outage, repair, Terra-only runtime и postflight-инварианты;
+- 59 unit/integration тестов: схемы, RU/УКР/EN планы, четыре языка писем, локализованные возрастные подписи, статусы защиты, зависимости, TTL/session storage, versioned одноразовые AI/handoff consent, consultation preview/email allowlist, honeypot/rate limit, freshness reminder, неполные и противоречивые данные, emergency, незаконный запрос, закрытый live gate, API outage, repair, Terra-only runtime и postflight-инварианты;
 - 16 Playwright проверок в desktop/mobile проектах: основной локальный сценарий без `/api/navigate`, выбор local/GPT, consent disclosure, документы, испанский черновик, RU/УКР/EN selector, изменение ответов, fictitious-data confirmation, emergency 112 и отсутствие горизонтального переполнения;
 - `typecheck`, `lint`, unit/integration, production `build` и e2e пройдены; live smoke с OpenAI API не запускался без API key.
 

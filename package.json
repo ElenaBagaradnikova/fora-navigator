@@ -12,7 +12,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "node scripts/run-e2e.mjs",
-    "test:e2e:direct": "playwright test"
+    "test:e2e:direct": "playwright test",
+    "video:record": "node scripts/record-demo-video.mjs",
+    "video:audio": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-demo-audio.ps1",
+    "video:mux": "node scripts/mux-demo-video.mjs"
   },
   "engines": {
     "node": ">=20.9.0"
