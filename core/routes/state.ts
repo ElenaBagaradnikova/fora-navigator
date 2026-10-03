@@ -1,7 +1,9 @@
 import { z } from "zod";
 
+export const GeneratedRouteStatusSchema = z.enum(["current", "stale"]);
+
 export const RouteStateSchema = z.object({
-  status: z.enum(["not_generated", "current", "stale"]),
+  status: z.union([z.literal("not_generated"), GeneratedRouteStatusSchema]),
   needsRecalculation: z.boolean(),
   invalidatedAt: z.string().datetime().optional(),
   invalidationReason: z.enum(["case_fact_changed"]).optional(),
