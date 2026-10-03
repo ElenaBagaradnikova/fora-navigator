@@ -11,6 +11,16 @@ import {
 import { SyntheticDocumentExtractor } from "@/core/documents/synthetic-extractor";
 
 const extractedAt = "2026-10-03T12:00:00.000Z";
+const confirmedAt = "2026-10-03T13:00:00.000Z";
+
+function confirmationFor(candidateFactId: string) {
+  return {
+    candidateFactId,
+    decision: "confirmed" as const,
+    confirmedAt,
+  };
+}
+
 const documentMetadata = DocumentMetadataSchema.parse({
   id: "synthetic-ru-document-1",
   documentType: "diagnostic_report",
@@ -89,7 +99,10 @@ describe("Document Intelligence contracts", () => {
       payload: { fixtureId: "fictional-ru-diagnostic-record" },
     });
 
-    const confirmedFact = confirmCandidateFact(extraction.candidateFacts[0]);
+    const confirmedFact = confirmCandidateFact(
+      extraction.candidateFacts[0],
+      confirmationFor(extraction.candidateFacts[0].id),
+    );
 
     expect(extraction.candidateFacts[0].verificationStatus).toBe("extracted");
     expect(confirmedFact.verificationStatus).toBe("user_confirmed");
@@ -102,7 +115,10 @@ describe("Document Intelligence contracts", () => {
       document: documentMetadata,
       payload: { fixtureId: "fictional-ru-diagnostic-record" },
     });
-    const confirmedFact = confirmCandidateFact(extraction.candidateFacts[0]);
+    const confirmedFact = confirmCandidateFact(
+      extraction.candidateFacts[0],
+      confirmationFor(extraction.candidateFacts[0].id),
+    );
     const caseValue = CaseV3Schema.parse({
       id: "synthetic-case-asturias-1",
       schemaVersion: "3.0",
@@ -192,11 +208,16 @@ describe("Document Intelligence contracts", () => {
       document: documentMetadata,
       payload: { fixtureId: "fictional-ru-diagnostic-record" },
     });
-    const confirmedFact = confirmCandidateFact(extraction.candidateFacts[0]);
+    const confirmedFact = confirmCandidateFact(
+      extraction.candidateFacts[0],
+      confirmationFor(extraction.candidateFacts[0].id),
+    );
 
     expect(() => confirmCandidateFact({
       ...extraction.candidateFacts[0],
       verificationStatus: confirmedFact.verificationStatus,
-    })).toThrow(CandidateFactConfirmationError);
+    }, confirmationFor(extraction.candidateFacts[0].id))).toThrow(
+      CandidateFactConfirmationError,
+    );
   });
 });

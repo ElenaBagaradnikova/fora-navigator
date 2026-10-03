@@ -2,8 +2,11 @@ import { z } from "zod";
 import { FactVerificationStatusSchema } from "@/core/case/verification";
 import {
   DocumentMetadataSchema,
+  ProvenanceSchema,
+  UserConfirmationSchema,
   type DocumentMetadata,
 } from "@/core/documents/schema";
+import { RouteStateSchema } from "@/core/routes/state";
 
 export { FactVerificationStatusSchema } from "@/core/case/verification";
 
@@ -38,11 +41,21 @@ export const CaseFactSchema = z.object({
   verificationStatus: FactVerificationStatusSchema,
   sourceDocumentId: z.string().min(1).max(120).optional(),
   provenanceId: z.string().min(1).max(120).optional(),
+  candidateFactId: z.string().min(1).max(120).optional(),
+  userConfirmation: UserConfirmationSchema.optional(),
   capturedAt: z.string().datetime(),
   validFrom: z.string().date().optional(),
   validTo: z.string().date().optional(),
   jurisdictionRelevance: z.array(z.string().min(2).max(120)).max(12).default([]),
-}).strict();
+}).strict().superRefine((fact, context) => {
+  if (fact.verificationStatus === "user_confirmed" && !fact.userConfirmation) {
+    context.addIssue({
+      code: "custom",
+      path: ["userConfirmation"],
+      message: "A user-confirmed fact must include the explicit confirmation record",
+    });
+  }
+});
 
 export const CaseDocumentSchema = DocumentMetadataSchema;
 
@@ -68,6 +81,11 @@ export const CaseV3Schema = z.object({
   facts: z.array(CaseFactSchema).max(500).default([]),
   unknowns: z.array(z.string().min(2).max(240)).max(100).default([]),
   documentMetadata: z.array(CaseDocumentSchema).max(100).default([]),
+  documentProvenance: z.array(ProvenanceSchema).max(500).default([]),
+  routeState: RouteStateSchema.default({
+    status: "not_generated",
+    needsRecalculation: false,
+  }),
 }).strict();
 
 export type CaseJurisdiction = z.infer<typeof CaseJurisdictionSchema>;

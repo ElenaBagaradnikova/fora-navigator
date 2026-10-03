@@ -53,6 +53,12 @@ export const CandidateFactSchema = z.object({
   jurisdictionRelevance: z.array(z.string().min(2).max(120)).max(12).default([]),
 }).strict();
 
+export const UserConfirmationSchema = z.object({
+  candidateFactId: IdentifierSchema,
+  decision: z.literal("confirmed"),
+  confirmedAt: z.string().datetime(),
+}).strict();
+
 const ValidationIssueFields = {
   code: z.string().regex(/^[A-Z][A-Z0-9_]*$/).max(80),
   message: z.string().min(1).max(500),
@@ -130,6 +136,7 @@ export const ExtractionResultSchema = z.object({
 export type DocumentMetadata = z.infer<typeof DocumentMetadataSchema>;
 export type Provenance = z.infer<typeof ProvenanceSchema>;
 export type CandidateFact = z.infer<typeof CandidateFactSchema>;
+export type UserConfirmation = z.infer<typeof UserConfirmationSchema>;
 export type ValidationError = z.infer<typeof ValidationErrorSchema>;
 export type ValidationWarning = z.infer<typeof ValidationWarningSchema>;
 export type ExtractionResult = z.infer<typeof ExtractionResultSchema>;
