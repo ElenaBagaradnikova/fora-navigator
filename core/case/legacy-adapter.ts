@@ -1,5 +1,10 @@
 import type { UserCase } from "@/lib/schemas";
-import { CaseV3Schema, type CasePerson, type CaseV3 } from "@/core/case/schema";
+import {
+  CaseV3Schema,
+  type CaseJurisdiction,
+  type CasePerson,
+  type CaseV3,
+} from "@/core/case/schema";
 
 const AGE_RANGE_MAP = {
   "0-5": "0-5",
@@ -9,15 +14,9 @@ const AGE_RANGE_MAP = {
   adult: "26-64",
 } as const;
 
-export const ASTURIAS_PACK = {
-  countryCode: "ES",
-  regionCode: "ASTURIAS",
-  packId: "ES-ASTURIAS",
-  packVersion: "0.1",
-} as const;
-
 export function userCaseToCaseV3(
   legacy: UserCase,
+  jurisdiction: CaseJurisdiction,
   now = new Date().toISOString(),
 ): CaseV3 {
   const people: CasePerson[] = legacy.household.map((person) => ({
@@ -47,10 +46,7 @@ export function userCaseToCaseV3(
       region: legacy.region,
       municipality: legacy.municipality,
     },
-    currentJurisdiction: {
-      ...ASTURIAS_PACK,
-      municipality: legacy.municipality,
-    },
+    currentJurisdiction: jurisdiction,
     preferredLanguages: [legacy.locale],
     people,
     needs,

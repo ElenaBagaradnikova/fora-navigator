@@ -2,6 +2,14 @@ import { describe, expect, it } from "vitest";
 import { UserCaseSchema } from "@/lib/schemas";
 import { userCaseToCaseV3 } from "@/core/case/legacy-adapter";
 
+const asturiasJurisdiction = {
+  countryCode: "ES",
+  regionCode: "ASTURIAS",
+  municipality: "Oviedo",
+  packId: "ES-ASTURIAS",
+  packVersion: "0.1",
+} as const;
+
 const legacyCase = UserCaseSchema.parse({
   id: "legacy-001",
   locale: "ru",
@@ -36,7 +44,11 @@ const legacyCase = UserCaseSchema.parse({
 
 describe("legacy UserCase -> CaseV3 adapter", () => {
   it("preserves the stable Asturias MVP while creating a v3 case", () => {
-    const value = userCaseToCaseV3(legacyCase, "2026-10-02T19:00:00.000Z");
+    const value = userCaseToCaseV3(
+      legacyCase,
+      asturiasJurisdiction,
+      "2026-10-02T19:00:00.000Z",
+    );
 
     expect(value.schemaVersion).toBe("3.0");
     expect(value.currentLocation).toEqual({
@@ -51,10 +63,31 @@ describe("legacy UserCase -> CaseV3 adapter", () => {
   });
 
   it("keeps unknown legacy answers explicit instead of inferring them", () => {
-    const value = userCaseToCaseV3(legacyCase, "2026-10-02T19:00:00.000Z");
+    const value = userCaseToCaseV3(
+      legacyCase,
+      asturiasJurisdiction,
+      "2026-10-02T19:00:00.000Z",
+    );
 
     expect(value.unknowns).toContain("immigration_status");
     expect(value.facts).toEqual([]);
     expect(value.documentMetadata).toEqual([]);
+  });
+
+  it("uses the supplied jurisdiction without inferring it from current location", () => {
+    const value = userCaseToCaseV3(
+      legacyCase,
+      {
+        countryCode: "ES",
+        regionCode: "TEST-REGION",
+        packId: "ES-TEST-REGION",
+        packVersion: "0.1",
+      },
+      "2026-10-02T19:00:00.000Z",
+    );
+
+    expect(value.currentLocation.region).toBe("Asturias");
+    expect(value.currentJurisdiction.packId).toBe("ES-TEST-REGION");
+    expect(value.currentJurisdiction.municipality).toBeUndefined();
   });
 });
