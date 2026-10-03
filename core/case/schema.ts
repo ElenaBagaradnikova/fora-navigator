@@ -1,4 +1,11 @@
 import { z } from "zod";
+import { FactVerificationStatusSchema } from "@/core/case/verification";
+import {
+  DocumentMetadataSchema,
+  type DocumentMetadata,
+} from "@/core/documents/schema";
+
+export { FactVerificationStatusSchema } from "@/core/case/verification";
 
 export const CaseJurisdictionSchema = z.object({
   countryCode: z.string().length(2),
@@ -13,14 +20,6 @@ export const CaseLocationSchema = z.object({
   region: z.string().min(2).max(120).optional(),
   municipality: z.string().min(2).max(120).optional(),
 }).strict();
-
-export const FactVerificationStatusSchema = z.enum([
-  "extracted",
-  "user_confirmed",
-  "professional_confirmed",
-  "authority_confirmed",
-  "disputed",
-]);
 
 export const FactOriginSchema = z.enum([
   "user",
@@ -38,27 +37,14 @@ export const CaseFactSchema = z.object({
   origin: FactOriginSchema,
   verificationStatus: FactVerificationStatusSchema,
   sourceDocumentId: z.string().min(1).max(120).optional(),
+  provenanceId: z.string().min(1).max(120).optional(),
   capturedAt: z.string().datetime(),
   validFrom: z.string().date().optional(),
   validTo: z.string().date().optional(),
   jurisdictionRelevance: z.array(z.string().min(2).max(120)).max(12).default([]),
 }).strict();
 
-export const CaseDocumentSchema = z.object({
-  id: z.string().min(1).max(120),
-  documentType: z.string().min(2).max(120),
-  originCountry: z.string().length(2),
-  originJurisdiction: z.string().min(2).max(120).optional(),
-  language: z.string().min(2).max(20),
-  issuerType: z.string().min(2).max(120),
-  issueDate: z.string().date().optional(),
-  expiryDate: z.string().date().optional(),
-  extractionStatus: z.enum(["not_started", "processing", "extracted", "confirmed", "failed"]),
-  extractedFactIds: z.array(z.string().min(1).max(120)).max(100).default([]),
-  confirmedFactIds: z.array(z.string().min(1).max(120)).max(100).default([]),
-  storageReference: z.string().max(500).optional(),
-  sensitivity: z.enum(["standard", "personal", "special_category"]),
-}).strict();
+export const CaseDocumentSchema = DocumentMetadataSchema;
 
 export const CasePersonSchema = z.object({
   id: z.string().min(1).max(120),
@@ -87,6 +73,6 @@ export const CaseV3Schema = z.object({
 export type CaseJurisdiction = z.infer<typeof CaseJurisdictionSchema>;
 export type CaseLocation = z.infer<typeof CaseLocationSchema>;
 export type CaseFact = z.infer<typeof CaseFactSchema>;
-export type CaseDocument = z.infer<typeof CaseDocumentSchema>;
+export type CaseDocument = DocumentMetadata;
 export type CasePerson = z.infer<typeof CasePersonSchema>;
 export type CaseV3 = z.infer<typeof CaseV3Schema>;
