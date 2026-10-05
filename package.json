@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint app components lib tests scripts next.config.ts playwright.config.ts vitest.config.ts eslint.config.mjs",
+    "lint": "eslint app application components core jurisdictions lib tests scripts next.config.ts playwright.config.ts vitest.config.ts eslint.config.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
